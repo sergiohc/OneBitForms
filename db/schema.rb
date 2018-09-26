@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 20180926045505) do
     t.boolean  "enable"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "slug"
+    t.index ["slug"], name: "index_forms_on_slug", unique: true, using: :btree
     t.index ["user_id"], name: "index_forms_on_user_id", using: :btree
   end
 
