@@ -129,12 +129,8 @@ RSpec.describe "Api::V1::Answers", type: :request do
       context "With Invalid authentication headers" do
         it_behaves_like :deny_without_authorization, :delete, "/api/v1/answers/questionary"
       end
-   
-   
       context "With valid authentication headers" do
-   
         context "When answer exists" do
-   
           context "And user is the owner" do
             before do
               @answer = create(:answer, form: @form)
