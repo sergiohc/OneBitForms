@@ -14,6 +14,7 @@ rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip
   exit 1
 end
+
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
@@ -23,4 +24,9 @@ RSpec.configure do |config|
 
   config.filter_rails_from_backtrace!
   config.include Devise::Test::ControllerHelpers, type: :controller
+
+  # Custom json helpers
+  config.include Requests::JsonHelpers, type: :request
+  # Custom Header helpers
+  config.include Requests::HeaderHelpers, type: :request
 end
