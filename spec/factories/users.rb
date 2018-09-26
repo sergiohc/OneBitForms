@@ -1,6 +1,9 @@
 FactoryGirl.define do
-  timestamp { FFaker::Time.between Date.today, Date.yesterday – 30 }
- 
+  timestamp = loop do
+    date = FFaker::Time.date.to_time
+    break date.strftime("%F %T") if date <= Date.today
+  end
+
   factory :user do
     uid          { FFaker::Lorem.word }
     email        { FFaker::Internet.email }
