@@ -115,7 +115,6 @@ RSpec.describe "Api::V1::Answers", type: :request do
   end
 
   describe "DELETE /answers/:id" do
-
     context "With Invalid authentication headers" do
       it_behaves_like :deny_without_authorization, :delete, "/api/v1/answers/0"
     end
